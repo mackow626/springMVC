@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="SpringWebt:war exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/SpringWebt_war_exploded</output-path>
+  <artifact type="exploded-war" name="SpringWeb:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SpringWeb_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="SpringWebt" />
+          <element id="module-output" name="SpringWeb" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.5.RELEASE" />
@@ -16,9 +16,11 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
         </element>
+        <element id="dir-copy" path="C:\moje\SpringWebt\src\main\java\WEB-INF" />
       </element>
-      <element id="javaee-facet-resources" facet="SpringWebt/web/Web" />
     </root>
   </artifact>
 </component>

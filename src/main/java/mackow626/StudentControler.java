@@ -15,7 +15,6 @@ public class StudentControler {
     public String pokazFormularz(Model model) {
 
         Student student = new Student();
-
         model.addAttribute("student", student);
         return "student-formularz";
     }

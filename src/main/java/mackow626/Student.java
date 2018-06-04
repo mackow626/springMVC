@@ -1,9 +1,12 @@
 package mackow626;
 
+import javax.validation.constraints.NotNull;
+
+
 import java.util.LinkedHashMap;
 
 public class Student {
-
+    @NotNull(message="musiz podac")
     private String imie;
     private String nazwisko;
     private String country;

@@ -19,7 +19,7 @@
 
     <br><br>
 
-    First nazwisko <form:input path="nazwisko"/>
+    First nazwisko1 <form:input path="nazwisko"/>
 
     <br><br>
 

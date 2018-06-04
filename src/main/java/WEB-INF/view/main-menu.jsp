@@ -18,6 +18,10 @@
 
 <a href="/student/pokazFormularz">Student</a>
 
+<br><br>
+
+<a href="/klient/pokazFormularz">Klient</a>
+
 </body>
 
 </html>

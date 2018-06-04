@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringWebt" />
+        <module name="SpringWeb" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SpringWebt" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="SpringWeb" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="PREFER_TARGET_JDK_COMPILER" value="false" />
   </component>
 </project>
