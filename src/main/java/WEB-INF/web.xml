@@ -28,8 +28,8 @@
     </servlet-mapping>
 
 
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>WEB-INF/classes/dispatcher-servlet.xml</param-value>
-    </context-param>
+    <!--<context-param>-->
+        <!--<param-name>contextConfigLocation</param-name>-->
+        <!--<param-value>WEB-INF/classes/dispatcher-servlet.xml</param-value>-->
+    <!--</context-param>-->
 </web-app>

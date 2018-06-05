@@ -27,9 +27,8 @@
     <br><br>
 
     nazwisko (*) <form:input path="nazwisko1"/>
+    <form:errors path="nazwisko1" cssClass="error" />
 
-
-    <form:errors path="nazwisko1" cssClass="error"/>
 
     <br><br>
 

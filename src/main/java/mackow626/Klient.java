@@ -1,15 +1,23 @@
 package mackow626;
 
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Klient {
+    public Klient() {
+    }
 
-    @NotNull(message="is required")
-    @Size(min=10, message="is required")
+    public Klient(String imie1, String nazwisko1) {
+        this.imie1 = imie1;
+        this.nazwisko1 = nazwisko1;
+    }
+
+    @Size(min = 4, max = 5)
+    @NotNull
     private String imie1;
 
-    @NotNull(message="is required")
+
     @Size(min=10, message="is required")
     private String nazwisko1;
 
