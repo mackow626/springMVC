@@ -8,6 +8,8 @@
 <body>
 Klient is confirmed: ${klient.imie1} ${klient.nazwisko1}
 <br>
-${klient.postalCode}
+Kod pocztowy :${klient.postalCode}
+<br>
+Kod kursu: ${klient.kodKursu}
 </body>
 </html>

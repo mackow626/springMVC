@@ -1,6 +1,8 @@
 package mackow626;
 
 
+import validation.Mackow626;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -25,6 +27,17 @@ public class Klient {
     //@Pattern(regexp = "^[0-9]{5}", message = "only 5 numbers available ")
     @NotNull(message="is required")
     private Integer postalCode;
+
+    @Mackow626(value = "LOL", message = "must start witj LOL")
+    private String kodKursu;
+
+    public String getKodKursu() {
+        return kodKursu;
+    }
+
+    public void setKodKursu(String kodKursu) {
+        this.kodKursu = kodKursu;
+    }
 
     public Integer getPostalCode() {
         return postalCode;
