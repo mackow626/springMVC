@@ -1,9 +1,12 @@
 package mackow626;
 
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,6 +17,12 @@ import java.util.logging.Logger;
 @RequestMapping("/klient")
 public class klientControler {
 
+
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder){
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+    }
 
     @RequestMapping("/pokazFormularz")
     public String pokazFormularz(Model model) {
@@ -27,6 +36,7 @@ public class klientControler {
 
         System.out.println("nazwisko "+ klient.getNazwisko1());
 
+        System.out.println("Binding reslt" + theBindingResult);
         if (theBindingResult.hasErrors()) {
 
             return "formularzKlienta";

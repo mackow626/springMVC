@@ -7,5 +7,7 @@
 </head>
 <body>
 Klient is confirmed: ${klient.imie1} ${klient.nazwisko1}
+<br>
+${klient.postalCode}
 </body>
 </html>
