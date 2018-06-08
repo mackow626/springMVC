@@ -1,9 +1,8 @@
-package mackow626;
+package spring;
 
 import javax.validation.constraints.NotNull;
-
-
 import java.util.LinkedHashMap;
+
 
 public class Student {
     @NotNull(message="musiz podac")

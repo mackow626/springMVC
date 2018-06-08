@@ -1,4 +1,4 @@
-package mackow626;
+package spring;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

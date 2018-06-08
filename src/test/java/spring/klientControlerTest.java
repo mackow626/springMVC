@@ -1,8 +1,6 @@
-package mackow626;
+package spring;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class klientControlerTest {
     @Test

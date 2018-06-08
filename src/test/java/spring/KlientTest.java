@@ -1,7 +1,6 @@
-package mackow626;
+package spring;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 
 import java.util.Set;
