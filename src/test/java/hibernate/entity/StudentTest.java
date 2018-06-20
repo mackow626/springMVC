@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 
 import java.io.File;
+import java.nio.channels.SeekableByteChannel;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.List;
@@ -15,9 +16,56 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StudentTest {
 
+    String file = "hibernate.cfg.xml";
+
+    @Test
+    void delete() {
+        SessionFactory factory = getSessionFactory(file);
+
+        Session session = factory.getCurrentSession();
+
+        try {
+            session.beginTransaction();
+            Student student = session.get(Student.class, 1);
+            session.delete(student);
+            session.getTransaction().commit();
+            System.out.println("Działa!!!");
+        } finally {
+            {
+                factory.close();
+            }
+        }
+    }
+
+    @Test
+    void updateStudent() {
+        SessionFactory factory = getSessionFactory(file);
+
+        Session session = factory.getCurrentSession();
+
+        try {
+            session.beginTransaction();
+            Student student = session.get(Student.class, 2);
+            student.setFirstName("Jola");
+            student.setLastName("Gross");
+            session.createQuery("update Student set email='aaaa@gmail.com'").executeUpdate();
+            session.getTransaction().commit();
+
+            assertEquals(student.getFirstName(), "Jola");
+
+
+            System.out.println("Działa!!!");
+        } finally {
+            {
+                factory.close();
+            }
+        }
+
+    }
+
     @Test
     void hqlGetStudentList() {
-        SessionFactory factory = getSessionFactory();
+        SessionFactory factory = getSessionFactory(file);
 
         Session session = factory.getCurrentSession();
 
@@ -37,10 +85,10 @@ class StudentTest {
 
             session.getTransaction().commit();
 
-            assertEquals(students.size(),7);
-            assertEquals(students1.size(),2);
-            assertEquals(students2.size(),4);
-            assertEquals(students3.size(),7);
+            assertEquals(students.size(), 7);
+            assertEquals(students1.size(), 2);
+            assertEquals(students2.size(), 4);
+            assertEquals(students3.size(), 7);
 
             System.out.println("Działa!!!");
         } finally {
@@ -52,26 +100,26 @@ class StudentTest {
     }
 
     private void displayList(List<Student> students) {
-        for(Student student:students){
+        for (Student student : students) {
             System.out.println(student);
         }
     }
 
     @Test
     void getStudent() {
-        SessionFactory factory = getSessionFactory();
+        SessionFactory factory = getSessionFactory(file);
 
         Session session = factory.getCurrentSession();
 
         try {
             session.beginTransaction();
-            Student student = session.get(Student.class,2);
+            Student student = session.get(Student.class, 2);
             session.getTransaction().commit();
 
-            assertEquals(student.getId(),2);
-            assertEquals(student.getFirstName(),"Maciek1");
-            assertEquals(student.getLastName(),"Kowalczuk1");
-            assertEquals(student.getEmail(),"email1@wp.pl");
+            assertEquals(student.getId(), 2);
+            assertEquals(student.getFirstName(), "Maciek1");
+            assertEquals(student.getLastName(), "Kowalczuk1");
+            assertEquals(student.getEmail(), "email1@wp.pl");
 
             System.out.println("Działa!!!");
         } finally {
@@ -87,7 +135,7 @@ class StudentTest {
     @Test
     public void primaryKeyDemoSave() {
 
-        SessionFactory factory = getSessionFactory();
+        SessionFactory factory = getSessionFactory(file);
 
         Session session = factory.getCurrentSession();
 
@@ -111,17 +159,17 @@ class StudentTest {
         assertTrue(true);
     }
 
-    private SessionFactory getSessionFactory() {
+    private static SessionFactory getSessionFactory(String file) {
         return new Configuration()
-                    .configure("hibernate.cfg.xml")
-                    .addAnnotatedClass(Student.class)
-                    .buildSessionFactory();
+                .configure(file)
+                .addAnnotatedClass(Student.class)
+                .buildSessionFactory();
     }
 
     @Test
     public void saveNewUserToDatabase() {
 
-        SessionFactory factory = getSessionFactory();
+        SessionFactory factory = getSessionFactory(file);
 
         Session session = factory.getCurrentSession();
 
@@ -144,7 +192,7 @@ class StudentTest {
     @Test
     public void ConectionTest() {
 
-        String jdbcUrl = "jdbc:mysql://127.0.0.1:3306/hb_student_tracker?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+        String jdbcUrl = "jdbc:mysql://127.0.0.1:3306/hb-01-one-to-one-uni?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
         String user = "hbstudent";
         String pass = "hbstudent";
 
