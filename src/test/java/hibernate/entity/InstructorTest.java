@@ -66,6 +66,7 @@ class InstructorTest {
                 .configure(file)
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetails.class)
+                .addAnnotatedClass(Course.class)
                 .buildSessionFactory();
     }
 
